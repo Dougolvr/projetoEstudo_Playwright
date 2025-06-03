@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { LoginPage } = require('../page-objects/LoginPage');
 const { usuarioValido, usuarioInvalido } = require('../utils/credentials');
 
-test('usuário deve conseguir fazer login com credenciais válidas', async({ page }) => {
+test('Usuário deve conseguir fazer login com credenciais válidas', async({ page }) => {
     const login = new LoginPage(page);
     await login.goto();
     await login.realizaLogin(usuarioValido.email, usuarioValido.senha);
