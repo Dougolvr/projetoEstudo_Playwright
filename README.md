@@ -10,6 +10,18 @@
 
 - `npx playwright test --ui` ->Abre a interface gráfica do Playwright Test Runner, permitindo selecionar e executar testes manualmente e visualizar os resultados em tempo real.
 
+- `npx playwright test tests/home.spec.js` -> Usando `test.only` em um teste especifico, você consegue executar apenas ele diante de outros testes dentro do mesmo arquivo.
+* Exemplo:  
+  Ao invés de:
+  ```javascript
+  test('deve exibir o título', async ({ page }) => {
+  });
+  Usa-se:
+  test.only('deve adicionar item ao carrinho', async ({ page }) => {
+});
+
+
+
 ## ⚡ Extra
 
 - `npx playwright test --debug` -> Utilizado para executar os testes em modo de depuração (debug). Permite gravar os passos para gera uma automação.

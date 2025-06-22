@@ -8,6 +8,7 @@ exports.HomePage = class HomePage {
         this.botaoCarrinho = page.getByTestId('carrinho');
         this.barraPesquisa = page.getByTestId('pesquisar');
         this.botaoPesquisar = page.getByTestId('botaoPesquisar');
+        this.botaoAdicionarALista = page.getByTestId('adicionarNaLista');
     };
 
         async clicarEverificarBotaoHome() {
@@ -44,10 +45,17 @@ exports.HomePage = class HomePage {
         };
 
         async realizarPesquisaProdutos() {
-            await this.barraPesquisa.fill('ball');
-            await this.botaoListaCompra.click();
-            await expect(this.page.getByRole('heading', { name: 'Produtos' })).toBeVisible();
+            await this.barraPesquisa.fill('Logitech');
+            await this.botaoPesquisar.click();
+            await expect(this.page.getByText(/Detalhes/)).toBeVisible(); // VÊ se a palavra "Detalhes" esta visivel na pagina
+        }
 
-            // await expect(this.page.locator('div')).toHaveText(/Produtos/);
+        async clicarBotaoAdicionarALista() {
+            await this.botaoAdicionarALista.click();
+        }
+
+        async verificaPaginaListaCompras(){
+            await expect(this.page.lacator('h1').toHaveText(/Lista de compras/i)); // verifica o titulo
+            await expect(this.page.getByText(/Total/i)).toBeVisible(); // verifica se a palavra total esta na pagina
         }
 };
