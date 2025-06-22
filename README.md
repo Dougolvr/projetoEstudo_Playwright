@@ -1,15 +1,17 @@
-### Para instalar o projeto
-`npm init playwright@latest`
+### 🛠  Como instalar o projeto 
 
-### Utilizado para executar os testes
-`npx playwright test`
+- `npm init playwright@latest` -> instala o Playwright e cria os arquivos iniciais necessários (ex.: playwright.config.js, pastas de testes, etc).
 
-### Utilizado para executar um apenas teste de um arquivo específico:
-`npx playwright test tests/login.spec.js`
+### 🔍 Como executar os testes
 
-### Utilizado para executar os testes em modo de depuração (debug).
-#### Permite gravar os passos para gera uma automação
-`npx playwright test --debug`
+- `npx playwright test` -> Executa todos os testes localizados na pasta padrão de testes
 
-### para visualizar o teste rodando
-`npx playwright test --ui`
+- `npx playwright test tests/login.spec.js` -> Executa apenas o arquivo de teste específico indicado (tests/login.spec.js).
+
+- `npx playwright test --ui` ->Abre a interface gráfica do Playwright Test Runner, permitindo selecionar e executar testes manualmente e visualizar os resultados em tempo real.
+
+## ⚡ Extra
+
+- `npx playwright test --debug` -> Utilizado para executar os testes em modo de depuração (debug). Permite gravar os passos para gera uma automação.
+
+- `npx playwright codegen <url>` ->  abre um navegador controlado pelo Playwright e grava as ações que você realiza. Enquanto você interage com a página, o Playwright gera automaticamente o código para reproduzir essas ações.

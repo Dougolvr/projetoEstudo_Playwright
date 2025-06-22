@@ -6,6 +6,8 @@ exports.HomePage = class HomePage {
         this.botaoHome = page.getByTestId('home');
         this.botaoListaCompra = page.getByTestId('lista-de-compras');
         this.botaoCarrinho = page.getByTestId('carrinho');
+        this.barraPesquisa = page.getByTestId('pesquisar');
+        this.botaoPesquisar = page.getByTestId('botaoPesquisar');
     };
 
         async clicarEverificarBotaoHome() {
@@ -40,4 +42,12 @@ exports.HomePage = class HomePage {
                 return false;
             };
         };
+
+        async realizarPesquisaProdutos() {
+            await this.barraPesquisa.fill('ball');
+            await this.botaoListaCompra.click();
+            await expect(this.page.getByRole('heading', { name: 'Produtos' })).toBeVisible();
+
+            // await expect(this.page.locator('div')).toHaveText(/Produtos/);
+        }
 };

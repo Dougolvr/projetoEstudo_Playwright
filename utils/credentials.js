@@ -1,7 +1,7 @@
 module.exports = {
     usuarioValido: {
         email: 'Playwright@teste.com',
-        senha: 'teste123'
+        senha: 'test123'
     },
 
     usuarioInvalido: {

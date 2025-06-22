@@ -27,6 +27,21 @@ test('Usuario deve conseguir navegar na barra de tarefas', async({ page }) => {
     expect(resultHome).toBe(true);
     expect(resultCompras).toBe(true);
     expect(resultCarrinho).toBe(true);
-    
+
     console.log("Validações feitas!")
 });
+
+test("Usuario deve pesquisar por produtos", async({ page }) => {
+    const login = new LoginPage(page);
+    const home = new HomePage(page);
+
+    // dado que o usuario esta logado no sistema
+    await login.goto();
+    await login.realizaLogin(usuarioValido.email, usuarioValido.senha);
+
+    // quando ele faz a pesquisa por um produto válido
+    await home.realizarPesquisaProdutos();
+    console.log('pesquisa feita')
+    // então o resultado da busca deve retornar
+
+})
